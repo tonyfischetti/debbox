@@ -57,5 +57,6 @@ sudo apt-get -t wheezy-backports install "tmux"
 sudo apt-get -t wheezy-cran3 install "r-base"
 sudo apt-get install vim-gtk alsa-utils obmenu tint2 volwheel wicd volumeicon xfce4-power-manager feh perl-tk build-essential xrandr thunar chromium bluetooth exuberant-ctags xfce4-terminal git zsh
 
-# if vim exists
+chsh -s /usr/bin/zsh
+
 
