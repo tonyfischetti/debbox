@@ -1,0 +1,61 @@
+
+
+
+-----------------------------
+-- /etc/network/interfaces --
+-----------------------------
+auto lo
+auto wlan0
+iface lo inet loopback
+iface wlan0 inet dhcp
+wpa-driver wext
+wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+-----------------------------
+
+---------------------------------------------
+-- /etc/wpa_supplicant/wpa_supplicant.conf --
+---------------------------------------------
+ctrl_interface=/var/run/wpa_supplicant
+ctrl_interface_group=netdev
+ap_scan=1
+fast_reauth=1
+eapol_version=1
+network={
+  ssid="NAME"
+  psk="PASSWORD"
+}
+---------------------------------------------
+
+
+---------------------------
+-- /etc/apt/sources.list --
+---------------------------
+deb http://ftp.us.debian.org/debian/ wheezy main non-free contrib
+deb-src http://ftp.us.debian.org/debian/ wheezy main non-free contrib
+
+deb http://security.debian.org/ wheezy/updates main contrib non-free
+deb-src http://security.debian.org/ wheezy/updates main contrib non-free
+
+# wheezy-updates, previously known as 'volatile'
+deb http://ftp.us.debian.org/debian/ wheezy-updates main contrib non-free
+deb-src http://ftp.us.debian.org/debian/ wheezy-updates main contrib non-free
+
+deb http://http.debian.net/debian wheezy-backports main contrib non-free
+
+deb http://cran.stat.ucla.edu/bin/linux/debian wheezy-cran3/
+---------------------------
+
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install sudo openbox lightdm
+usermod -a -D sudo tony
+
+reboot
+
+sudo apt-get -t wheezy-backports install "tmux"
+sudo apt-get -t wheezy-cran3 install "r-base"
+sudo apt-get install vim-gtk alsa-utils obmenu tint2 volwheel wicd volumeicon xfce4-power-manager feh perl-tk build-essential xrandr thunar chromium bluetooth exuberant-ctags xfce4-terminal git zsh
+
+# if vim exists
+
